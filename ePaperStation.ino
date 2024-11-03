@@ -12,11 +12,7 @@
 #include "resources/fonts/fonts.h"
 
 #define host "api.openweathermap.org"
-<<<<<<< HEAD
-#define TELEGRAM_KEY "7533979021:AAF2xtW7lMth0syKP9qjPn-lqtS6FiM7iLs"
-=======
 #define TELEGRAM_KEY "YOUR_TELEGRAM_KEY"
->>>>>>> fef32653985dacd281fdca886c157043a07fefaa
 #define SEGMENTS 20
 #define vRef 0.193446275
 
@@ -36,7 +32,7 @@ const char *password = "FqJMFw851IMBgdsv";
 
 void setupWiFi() {
   WiFi.setHostname("PixelPioneer ePaper");
-  WiFi.begin("FRITZ!Box 7560 EM", "17545145053729283983");
+  WiFi.begin("YOUR_SSID", "YOUR_PASS");
   float connectionBegin = millis();
   while (WiFi.status() != WL_CONNECTED) {
     Serial.print(".");
@@ -122,7 +118,7 @@ void loop() {
   if (!client.connect(host, 80))
     failedDataFetch();
   Serial.println("Verbunden mit OpenWeatherMap");
-  client.print(String("GET /data/2.5/weather?lat=49.630638&lon=8.357910&units=metric&appid=ba646172210deeed46a844cfd4d3d469") + " HTTP/1.1\r\n" + "Host: " + host + "\r\n" + "Connection: close\r\n\r\n");
+  client.print(String("GET /data/2.5/weather?lat=49.630638&lon=8.357910&units=metric&appid=YOUR_APP_ID") + " HTTP/1.1\r\n" + "Host: " + host + "\r\n" + "Connection: close\r\n\r\n");
 
   String response = "";
   while (client.connected() || client.available()) {
@@ -158,7 +154,7 @@ void loop() {
 
   if (!client.connect(host, 80))
     failedDataFetch();
-  client.print(String("GET /data/2.5/uvi?lat=49.630638&lon=8.357910&units=metric&appid=ba646172210deeed46a844cfd4d3d469") + " HTTP/1.1\r\n" + "Host: " + host + "\r\n" + "Connection: close\r\n\r\n");
+  client.print(String("GET /data/2.5/uvi?lat=49.630638&lon=8.357910&units=metric&appid=YOUR_APP_ID") + " HTTP/1.1\r\n" + "Host: " + host + "\r\n" + "Connection: close\r\n\r\n");
 
   response = "";
   while (client.connected() || client.available()) {
@@ -180,7 +176,7 @@ void loop() {
 
   if (!client.connect(host, 80))
     failedDataFetch();
-  client.print(String("GET /data/2.5/forecast?lat=49.630638&lon=8.357910&units=metric&appid=ba646172210deeed46a844cfd4d3d469") + " HTTP/1.1\r\n" + "Host: " + host + "\r\n" + "Connection: close\r\n\r\n");
+  client.print(String("GET /data/2.5/forecast?lat=49.630638&lon=8.357910&units=metric&appid=YOUR_APP_ID") + " HTTP/1.1\r\n" + "Host: " + host + "\r\n" + "Connection: close\r\n\r\n");
 
   response = "";
   while (client.connected() || client.available()) {
